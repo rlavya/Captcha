@@ -1,23 +1,27 @@
-//Created / Generates the captcha function    
-function drawCaptcha() {
-    var arr = []
-    while (arr.length < 3) {
-        var randomnumber = Math.floor(Math.random() * 10)
-        if (arr.indexOf(randomnumber) > -1) continue;
-        arr[arr.length] = randomnumber;
+//Generates the captcha function    
+function displayCaptcha() {
+    var arr = [],
+        arrLength = arr.length,
+        arrLimit = 3;
+    while (arrLength < arrLimit) {
+        var randomNumber = Math.floor(Math.random() * 10)
+        if (arr.indexOf(randomNumber) > -1) continue;
+        arr[arrLength++] = randomNumber;
     }
     document.getElementById("captcha-num").innerHTML = arr.join(" ").toString();
 
-    var arrDisplay = arr.slice();
-    while (arrDisplay.length < 6) {
-        var randomnumber = Math.floor(Math.random() * 10)
-        if (arrDisplay.indexOf(randomnumber) > -1) continue;
-        arrDisplay[arrDisplay.length] = randomnumber;
+    var arrDisplay = arr.slice(),
+        arrDisplaylength = arrDisplay.length,
+        arrDisplayLimit = 6;
+    while (arrDisplaylength < arrDisplayLimit) {
+        var randomNumber = Math.floor(Math.random() * 10)
+        if (arrDisplay.indexOf(randomNumber) > -1) continue;
+        arrDisplay[arrDisplaylength++] = randomNumber;
     }
     shuffle(arrDisplay);
-    text="";
-    for (i = 0; i < arrDisplay.length; i++) {
-        text += "<span onclick='getValue("+arrDisplay[i]+")'>" + arrDisplay[i] + "</span>";
+    text = "";
+    for (i = 0; i < arrDisplaylength; i++) {
+        text += "<span onclick='getValue(" + arrDisplay[i] + ")'>" + arrDisplay[i] + "</span>";
     }
     document.getElementById("click-captcha").innerHTML = text;
 }
@@ -29,8 +33,6 @@ function validCaptcha() {
     clearCaptcha();
     if (str1 == str2) return true;
     return false;
-
-
 }
 
 // Remove the spaces from the entered and generated code
@@ -39,16 +41,15 @@ function removeSpaces(string) {
 }
 
 // Shuffle the array obtained to click the capctha
-function shuffle(a) {
-    var j, x, i;
-    for (i = a.length; i; i--) {
+function shuffle(shuffleArray) {
+    var j, tempVariable, i;
+    for (i = shuffleArray.length; i; i--) {
         j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
+        tempVariable = shuffleArray[i - 1];
+        shuffleArray[i - 1] = shuffleArray[j];
+        shuffleArray[j] = tempVariable;
     }
 }
-
 
 // Clear the input captcha
 function clearCaptcha() {
