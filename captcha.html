@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/captcha.css">
 </head>
 
-<body onload="drawCaptcha();">
+<body onload="displayCaptcha();">
     <div id="wrap">
         <header>
             <div class="wrapper">
@@ -19,7 +19,7 @@
         <div id="captcha-wrapper">
             <div id="captcha-display">
                 <span id="txt-captcha">Press<span id="captcha-num"></span></span>
-                <input type="button" id="btnrefresh" onclick="drawCaptcha();">
+                <input type="button" id="btnrefresh" onclick="displayCaptcha();">
             </div>
             <div id="captcha-input">
                 <input type="text" id="txt-input">
