@@ -6,21 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/captcha.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 
-<body>
-    <header>
-        <div class="wrapper">
-            <a href="http://www.qburst.com" target="_blank"><img src="images/qburst.png" alt="QBurst Logo" width="100" height="50"></a>
-            <h1>Captcha</h1>
+<body onload="displayCaptcha();">
+    <div id="wrap">
+        <header>
+            <div class="wrapper">
+                <a href="http://www.qburst.com" target="_blank"><img src="images/qburst.png" alt="QBurst Logo" width="100" height="50"></a>
+                <h1>Captcha</h1>
+            </div>
+        </header>
+        <div id="captcha-wrapper">
+            <div id="captcha-display">
+                <span id="txt-captcha">Press<span id="captcha-num"></span></span>
+                <input type="button" id="btnrefresh" onclick="displayCaptcha();">
+            </div>
+            <div id="captcha-input">
+                <input type="text" id="txt-input">
+                <input type="button" id="submit-captcha" onclick="alert(validCaptcha());">
+                <input type="button" id="clear-captcha" onclick="clearCaptcha();">
+            </div>
+            <div id="click-captcha"></div>
         </div>
-    </header>
-
+    </div>
     <footer>
         <div class="wrapper">
             <div class="footer-right">
-                <a href="/company/contact/#india" class="company-address">
+                <a class="company-address">
                     7th Floor, Ganga<br>
                     Phase III Campus, Technopark 
                     <br> Trivandrum - 695583
@@ -44,8 +56,6 @@
         </div>
     </footer>
 </body>
-<script src="js/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/captcha.js"></script>
+
 </html>
